@@ -20,7 +20,7 @@ There is also a Docker image available [here](https://hub.docker.com/repository/
 2. Build the MaxSAT solver. Make sure you have [GMP](https://gmplib.org/) installed. Then build with:
     ```
     $ cd satmap/lib/Open-WBO-Inc/
-    $ make r
+    $ make -j $(nproc) r
     ```
     
 # Usage
