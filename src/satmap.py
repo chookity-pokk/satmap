@@ -96,9 +96,10 @@ def generateAndWriteClauses(logNum, liveCnots, cnots, cm, swapNum, ffClauses, pa
     
     physNum = len(cm)
     numCnots = len(cnots)
-    if layering:
-        layers = getLayers(cnots)
-    else: layers = list(range(len(cnots)))
+    layers = getLayers(cnots)
+    ##if layering:
+    ##    layers = getLayers(cnots)
+    ##else: layers = list(range(len(cnots)))
     # liveLog = set([c for (c,_) in liveCnots] + [t for (_,t) in liveCnots])
     liveLog = range(logNum)
     numP = physNum * physNum * numCnots
@@ -735,8 +736,8 @@ def toQasmFF(progName, cm, swapNum, chunks, solSource,  swaps=None):
     cnots = extract2qubit(progName)
     logNum = extractQbits(progName)
     numCnots = len(cnots)
-    # layers = getLayers(cnots)
-    layers = range(len(cnots))
+    layers = getLayers(cnots)
+    #layers = range(len(cnots))
     chunkSize = len(layers)//chunks
     prevMap = None
     circ = qiskit.QuantumCircuit(len(cm), len(cm))
